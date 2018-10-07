@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 var c = console.log
 
 class Form extends Component {
@@ -18,7 +18,7 @@ class Form extends Component {
 
   
   handleChangeTitle(value) {
-    c("TITLE: ", value)
+    // c("TITLE: ", value)
     this.setState({ title: value })
   }
 
@@ -33,11 +33,18 @@ class Form extends Component {
 
   handleSubmit() {
     c(this.state)
+    let { title, image, content } = this.state
+
+    axios.post(`/api/posts/:userid`, { title: title, image: image, content: content })
+    .then((response) => {
+      console.log(response)
+    })
      
 
   }
 
   render() { 
+
     return ( 
       <div>
         <p>New Post Component</p>

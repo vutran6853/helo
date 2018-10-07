@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import css from './post.css';
+
 
 class Post extends Component {
   constructor(props) {
@@ -10,15 +13,24 @@ class Post extends Component {
       author: '',
       authorPicture: ''
      }
+  }
+
+
+
 
   // GET POST INFO
-
-
+  componentDidMount() {
+    axios.get(`/api/post/1`)
+    .then((response) => {
+      console.log(response)
+    })
   }
+
+
   render() { 
     
     return ( 
-      <div>
+      <div className='postBox' >
         <p>Post Component</p>
       </div>
      );

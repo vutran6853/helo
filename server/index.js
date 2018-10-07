@@ -6,6 +6,7 @@ const port = process.env.SERVER_PORT || 3002;
 const cors = require('cors');
 const app = express();
 
+const { postUser, getUser, postUserPost, getPost } = require('./controllers/userControllers');
 
 app.use(cors())
 
@@ -22,13 +23,17 @@ app.use(json());
 const path = require('path'); // Usually moved to the start of file
 
 
-app.post('/api/auth/register')
-app.post('/api/auth/login')
+app.post('/api/auth/register/:userInfo', postUser)
 
+app.post('/api/auth/login/:userInfo', getUser)
+
+app.post('/api/posts/:userid', postUserPost)
 
 
 app.get('/api/posts/:userid')
-app.get('/api/post/postid')
+
+
+app.get('/api/post/:postid', getPost)
 
 
 app.use( express.static( `${__dirname}/../build` ) );

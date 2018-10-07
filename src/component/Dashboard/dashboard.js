@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+// import Form from '../Form/form'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class Dashboard extends Component {
 // GET ALL POST FROM DATABASE
   componentDidMount() {
     // this.grabPosts();
+
   }
 
 
@@ -24,6 +25,7 @@ class Dashboard extends Component {
     return ( 
       <div>
         <p>Dashboard Component</p>
+        
       </div>
      );
   }
