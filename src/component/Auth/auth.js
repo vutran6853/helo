@@ -30,24 +30,33 @@ class Auth extends Component {
   } 
   
   handleLogin() {
+    c(this.props.history)
+    let { history } = this.props;
     let { username, password } = this.state
     c('Register CLICK: ', 'USERNAME: ', username, 'password: ', password)
-    axios.post(`/api/auth/login/:userInfo`, { name: username, password: password })
+    // axios.post(`/api/auth/login/:userInfo`, { name: username, password: password })
+    // .then((response) => {
+    //   console.log(response)
+    //   history.push('/dashboard')    
+    // })
+    // .catch((error) => {
+    //   console.log(`Oop Can't find Info, Please check form`, error)
+    // })
+    axios.post(`/api/login`, { username, password })
     .then((response) => {
-      console.log(response)
-      c(this.props)
-          // this.props.history.push('/dashboard');
+      console.log()
     })
-    .catch((error) => {
-      console.log(`Oop Can't find Info, Please check form`, error)
-    })
+
+
+
   }
 
   handleRegister() {
+    console.log(this.props)
     let { username, password } = this.state
     let fullInfo = { username, password }
-    // c(fullInfo)
-    // c('Register CLICK: ', 'USERNAME: ', username, 'password: ', password)
+    c(fullInfo)
+    c('Register CLICK: ', 'USERNAME: ', username, 'password: ', password)
 
     axios.post(`/api/auth/register/:userInfo`, { name: username, password: password } )
     .then((response) => {
@@ -56,11 +65,12 @@ class Auth extends Component {
   }
 
   render() { 
-    c(this.state)
+    c(this.props.history)
+
     return ( 
       <div>
         <p>Auth Component</p>
-
+      
         <p>username:</p>
         <input value={ this.state.username } 
               onChange={ (e) => this.handleChangeUsername(e.target.value) } 
@@ -76,17 +86,19 @@ class Auth extends Component {
         ></input>
 
 
-      <Link to='/dashboard' >
+      {/* <Link to='/dashboard' > */}
         <button onClick={ () => this.handleLogin() } >Login</button>
-      </Link>
+      {/* </Link> */}
       
-      <Link to='/dashboard'>
+      {/* <Link to='/dashboard'> */}
         <button onClick={ () => this.handleRegister() } >Register</button>
-      </Link>
+      {/* </Link> */}
         
       
      
      
+   
+        
       </div>
      );
   }

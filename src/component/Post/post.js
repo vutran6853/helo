@@ -15,18 +15,6 @@ class Post extends Component {
      }
   }
 
-
-
-
-  // GET POST INFO
-  componentDidMount() {
-    axios.get(`/api/post/1`)
-    .then((response) => {
-      console.log(response)
-    })
-  }
-
-
   render() { 
     
     return ( 

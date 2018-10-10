@@ -1,0 +1,16 @@
+.dashboardBox {
+  border: 1px solid red;
+}
+
+.displayPostBox {
+  border: 5px solid blue;
+  height: 200px;
+  width: 400px;
+  display: inline-table;
+  margin: 5px;
+}
+
+.displayPostBox > img {
+  height: 100px;
+  width: 100px;
+}
